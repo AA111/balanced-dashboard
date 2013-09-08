@@ -55,7 +55,7 @@
 }
 
 .modal-header {
-  padding: 5px 15px;
+  padding: 5px 10px;
   border-bottom: 1px transparent;
   background-color: @modalBorderColor;
   // Close icon
@@ -66,7 +66,6 @@
   // Heading
   h2 {
     color: #fff;
-    padding-left: 25px;
     margin-top: 5px;
   }
 }
@@ -74,8 +73,8 @@
 // Body (where all modal content resides)
 .modal-body {
   position: relative;
-  overflow-y: auto;
-  max-height: 420px;
+  overflow-y: hidden;
+  max-height: 430px;
   margin: 0;
 
   &.modal-info {
@@ -104,12 +103,14 @@
   }
 
   .number1a {
-    line-height: 48px;
+    line-height: 70px;
+    font-size: 16px;
+    font-family: @sansFontFamily;
   }
 
   &:not(.modal-with-headers) {
     background-color: @modalBodyBackgroundColor;
-    padding: 20px 35px 20px 35px;
+    padding: 0;
   }
 
   .modal-content {
@@ -120,6 +121,61 @@
   .optional-modal-fields:not(.open) {
     display: none;
   }
+
+  .control-group {
+    height: 70px;
+    border-bottom: 1px solid #bcbcbc;
+    line-height: 70px;
+    margin: 0;
+    color: #4A4A4A;
+    font-size: 14px;
+    font-family: @sansFontFamily;
+
+    label {
+      float: left;
+      line-height: 70px;
+      min-width: 140px;
+      margin: 0 10px;
+    }
+
+    .input-prepend {
+      margin: 15px 0;
+    }
+
+    .styled-select {
+      width: 255px;
+      overflow: hidden;
+      height: 40px;
+      line-height: 40px;
+      position:relative; 
+      top: 17px;
+      background-color: @gray2;
+      border: 1px solid #ccc;
+    }
+
+    .styled-select:after {
+      content: '  ';
+      width: 0; 
+      height: 0; 
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #000;
+      position: absolute;
+      top: 17px;
+      right: 10px;
+    }
+
+    .styled-select select {
+       background: transparent;
+       width: 265px;
+       padding: 5px;
+       font-size: 16px;
+       line-height: 1;
+       border: 0;
+       height: 40px;
+       -webkit-appearance: none;
+    }
+  }
 }
 
 .modal-section-header {
@@ -129,9 +185,13 @@
 }
 
 .modal-informational {
-  background-color: @modalInformationalDarkBackground;
+  background-color: @egyptianBlue20;
   border-top: 1px solid @balancedLightGray;
   border-bottom: 1px solid @balancedLightGray;
+  /*.fontyFont(label6; 'Droid Serif', serif; 13px; @fontStyle: italic);*/
+  font-family: 'Droid Serif', serif;
+  font-size: 13px;
+  font-style: italic;
 
   .disclosure-button {
     background-color: @modalInformationalDarkBackground;
@@ -217,7 +277,7 @@
   margin-bottom: 0;
   text-align: right; // right align buttons
   background-color: @modalBackgroundColor;
-  border-top: 1px transparent;
+  border-top: 1px transparent; 
   .clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
