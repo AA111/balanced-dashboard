@@ -55,7 +55,7 @@
 }
 
 .modal-header {
-  padding: 5px 10px;
+  padding: 5px 40px;
   border-bottom: 1px transparent;
   background-color: @modalBorderColor;
   // Close icon
@@ -66,7 +66,6 @@
   // Heading
   h2 {
     color: #fff;
-    margin-top: 5px;
   }
 }
 
@@ -127,7 +126,7 @@
     border-bottom: 1px solid #bcbcbc;
     line-height: 70px;
     margin: 0;
-    color: #4A4A4A;
+    color: @gray7;
     font-size: 14px;
     font-family: @sansFontFamily;
 
@@ -135,7 +134,7 @@
       float: left;
       line-height: 70px;
       min-width: 140px;
-      margin: 0 10px;
+      margin: 0 40px;
     }
 
     .input-prepend {
@@ -143,7 +142,7 @@
     }
 
     .styled-select {
-      width: 255px;
+      width: 343px;
       overflow: hidden;
       height: 40px;
       line-height: 40px;
@@ -167,14 +166,18 @@
 
     .styled-select select {
        background: transparent;
-       width: 265px;
+       width: 380px;
        padding: 5px;
        font-size: 16px;
        line-height: 1;
        border: 0;
        height: 40px;
        -webkit-appearance: none;
+       -moz-appearance: none;
+       text-indent: 0.01px;
+       text-overflow: '';
     }
+
   }
 }
 
