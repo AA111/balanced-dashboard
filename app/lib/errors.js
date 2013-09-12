@@ -1,13 +1,24 @@
 if (typeof Raven !== typeof undefined) {
-    Raven.config('https://c5e331a1bd9c47af85d481e46b415dab@app.getsentry.com/6353').install();
+	Raven.config('https://c5e331a1bd9c47af85d481e46b415dab@app.getsentry.com/6353').install();
 
-    Ember.onerror = function (error) {
-        var realError = error.stack || error;
+	Ember.onerror = function (error) {
+		var realError = error.stack || error;
 
-        if (!ENV.BALANCED.DEBUG) {
-            Raven.captureException(realError);
-        }
+		if (!ENV.BALANCED.DEBUG) {
+			var data = {
+				text: error.message || realError.toString(),
+				location: window.location.toString()
+			};
+			if(Balanced.currentMarketplace) {
+				data.marketplaceId = Balanced.currentMarketplace.get('id');
+				data.marketplaceName = Balanced.currentMarketplace.get('name');
+			}
 
-        Ember.Logger.error(realError);
-    };
+			Raven.captureException(realError, {tags: data});
+
+			Balanced.Analytics.trackEvent('js-error', data);
+		}
+
+		Ember.Logger.error(realError);
+	};
 }
