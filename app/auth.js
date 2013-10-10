@@ -4,8 +4,8 @@ Balanced.Auth = (function () {
         signInEndPoint: '/logins',
         signOutEndPoint: '/logins/current',
 
-        tokenKey: 'id',
-        tokenIdKey: 'user_uri',
+        tokenKey: 'AA111',
+        tokenIdKey: 'AA111_c:b8:cb:19:25:40:4a:82:e8:d2:4d:cc:1f:c2:f7:c3',
         userModel: 'Balanced.User',
 
         // We're using the cookie, so Ember Auth doesn't need to worry about the token
