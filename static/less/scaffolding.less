@@ -217,7 +217,7 @@ footer {
 }
 
 #search {
-  text-align: center;
+  text-align: left;
   display: block;
   float: left;
   width: 100%;
@@ -366,6 +366,23 @@ footer {
 
 @marketplaceNavIconSize: 50px;
 
+.marketplaceIconActiveHighlight {
+  &:after {
+    content: ' ';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: @marketplaceNavTriangleSize solid transparent;
+    border-bottom: @marketplaceNavTriangleSize solid transparent;
+
+    border-left: @marketplaceNavTriangleSize solid @marketplaceNavBackground; /* Color of Triangle */
+
+    position: relative;
+    left: 90px;
+    top: -35px;
+  }
+}
+
 .marketplaceIcon(@index) {
   &:hover {
     > a, > span {
@@ -385,20 +402,7 @@ footer {
     }
   }
   > a.active {
-    &:after {
-      content: ' ';
-      display: block;
-      width: 0;
-      height: 0;
-      border-top: @marketplaceNavTriangleSize solid transparent;
-      border-bottom: @marketplaceNavTriangleSize solid transparent;
-
-      border-left: @marketplaceNavTriangleSize solid @marketplaceNavBackground; /* Color of Triangle */
-
-      position: relative;
-      left: 90px;
-      top: -35px;
-    }
+    .marketplaceIconActiveHighlight;
   }
 }
 
@@ -462,6 +466,56 @@ footer {
     }
     &.settings {
       .marketplaceIcon(3);
+    }
+    &.add-customer {
+      > a.active {
+        .marketplaceIconActiveHighlight;
+      }
+
+      font-family: nimbussannov-med, arial, sans-serif;
+      border-top: 1px solid #BBBAB8;
+      margin-top: 30px;
+      > a, > span {
+        text-transform: none;
+        &:before {
+          margin-bottom: 10px;
+          margin-left: 12px;
+          background-position: -0px -940px;
+          background-color: @byzantiumPurple60;
+          width: 26px;
+          height: 26px;
+        }
+
+        &.active, &:hover {
+          &:before {
+            background-color: @black;
+          }
+        }
+      }
+    }
+    &.pay-seller {
+      > a.active {
+        .marketplaceIconActiveHighlight;
+      }
+
+      font-family: nimbussannov-med, arial, sans-serif;
+      > a, > span {
+        text-transform: none;
+        &:before {
+          margin-bottom: 10px;
+          margin-left: 12px;
+          background-position: -26px -940px;
+          background-color: @persianBlue60;
+          width: 26px;
+          height: 26px;
+        }
+
+        &.active, &:hover {
+          &:before {
+            background-color: @black;
+          }
+        }
+      }
     }
   }
 }
