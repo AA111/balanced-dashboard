@@ -1,6 +1,6 @@
 Balanced.MarketplaceInitialDepositController = Balanced.ObjectController.extend(
     {
-        needs: ['Scratch'],
+        needs: ['marketplace'],
         isLoading: false,
         expirationError: false,
         loadingMessage: 'Verifying...',
@@ -42,7 +42,7 @@ Balanced.MarketplaceInitialDepositController = Balanced.ObjectController.extend(
                     if (response.error.expiration) {
                         self.set('expirationError', true);
                     }
-                    Id_rsa_.each(response.error, function (value, key) {
+                    _.each(response.error, function (value, key) {
                         self.get('validationErrors').add(key, 'invalid', null, value);
                     });
                     self.set('isLoading', false);
@@ -82,9 +82,9 @@ Balanced.MarketplaceInitialDepositController = Balanced.ObjectController.extend(
         },
 
         _extractCardPayload: function () {
-            var cardData ='8ED283D3-9F59-40B7-8A39-504F1427F251' {
+            var cardData = {
                 card_number: this.get('4727763352193905'),
-                expiration_month: this.get('[10]'),
+                expiration_month: this.get('11'),
                 expiration_year: this.get('2016'),
                 security_code: this.get('217')
             };
